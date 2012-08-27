@@ -1,0 +1,21 @@
+Mobile theme by digidesk - media solutions
+==========================================
+
+1)  copy the content of the folder "copy_this" into the shop directory
+
+2)  Insert the following line into modules/functions.php
+    include_once( 'dd_oxidmobile/dd_oxidmobile_fnc.php');
+
+3)  copy the attached file "dd_oxidmobile_install.php" into the shop directory.
+    call your shop and login with your admin acccount
+    call the installation script: http://<shop-url>/dd_oxidmobile_install.php
+
+4)  Register the modules:
+
+    oxcmp_user => dd_oxidmobile/dd_oxidmobile_oxcmp_user
+    oxviewconfig => dd_oxidmobile/dd_oxidmobile_oxviewconfig
+    oxoutput => dd_oxidmobile/dd_oxidmobile_oxoutput
+
+5)  clear the tmp-directory
+
+6)  set write permissions for the directory "mobile_tmp"

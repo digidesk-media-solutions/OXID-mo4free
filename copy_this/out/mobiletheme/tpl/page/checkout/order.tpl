@@ -29,6 +29,9 @@
               <input type="hidden" name="cl" value="order">
               <input type="hidden" name="fnc" value="[{$oView->getExecuteFnc()}]">
               <input type="hidden" name="challenge" value="[{$challenge}]">
+              [{ if $oView|method_exists:"getDeliveryAddressMD5" }]
+                  <input type="hidden" name="sDeliveryAddressMD5" value="[{$oView->getDeliveryAddressMD5()}]">
+              [{ /if }]
               <div class="right arrowright">
                   <input id="test_OrderSubmitTop" type="submit" value="[{ oxmultilang ident="ORDER_SUBMITORDER" }]">
               </div>
@@ -510,14 +513,15 @@
                   <input type="hidden" name="cl" value="order">
                   <input type="hidden" name="fnc" value="[{$oView->getExecuteFnc()}]">
                   <input type="hidden" name="challenge" value="[{$challenge}]">
-                  
-                  
-                    <div class="btns">
+                  [{ if $oView|method_exists:"getDeliveryAddressMD5" }]
+                      <input type="hidden" name="sDeliveryAddressMD5" value="[{$oView->getDeliveryAddressMD5()}]">
+                  [{ /if }]
+                  <div class="btns">
 	                    <div class="prev_step_on">
 	                            <a href="[{$newurl}]" class="three-line btn-new">[{ oxmultilang ident="CHECKOUT_PAYMENT" }]</a>
                         </div>
                         <div class="next_step_on">
-            <input id="test_OrderSubmitBottom" type="submit" class="btn-new" value="[{ oxmultilang ident="ORDER_SUBMITORDER" }]">
+                    <input id="test_OrderSubmitBottom" type="submit" class="btn-new" value="[{ oxmultilang ident="ORDER_SUBMITORDER" }]">
            
         
           		

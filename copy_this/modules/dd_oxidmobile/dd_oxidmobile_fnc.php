@@ -191,6 +191,7 @@ function ddIsMobileDevice()
         'treo',
         'iphone',
         'ipod',
+        'android',
     );
 
     $useragent = $_SERVER[ 'HTTP_USER_AGENT' ];

@@ -7,7 +7,7 @@
             <input type="text" name="searchparam" value="[{$oView->getSearchParamForHtml()}]" size="21" id="f.search.param" class="txt">
 
             [{if $oView->getSearchCatTree() }]
-            <select id="test_searchCategorySelect" class="search_input" name="searchcnid" [{if $oViewConf->isAutoSearchOnCat() }]onchange="oxid.search('f.search','f.search.param');"[{/if}]>
+            <select id="test_searchCategorySelect" class="search_input" name="searchcnid" [{if $oViewConf->getViewThemeParam('blAutoSearchOnCat') }]onchange="oxid.search('f.search','f.search.param');"[{/if}]>
                 <option value=""> [{ oxmultilang ident="INC_SEARCHLEFTITEM_ALLCATEGORIES" }] </option>
                 [{include file="inc/category_options.tpl" tree=$oView->getSearchCatTree() sSpacer=""}]
             </select>
@@ -36,7 +36,7 @@
     </form>
 [{/if}]
 [{if $oxcmp_categories }]
-  [{if $oView->showTopCatNavigation()}]
+  [{if $oViewConf->getViewThemeParam('blTopNaviLayout')}]
     [{include file="inc/category_tree.tpl" tree=$oxcmp_categories->getClickRoot() act=$oxcmp_categories->getClickCat() class="tree"}]
   [{else}]
     [{include file="inc/category_tree.tpl" tree=$oxcmp_categories act=$oxcmp_categories->getClickCat() class="tree"}]
@@ -47,11 +47,11 @@
     [{include file="inc/vendor_tree.tpl" tree=$oView->getVendorlist() class="tree"}]
 [{/if}]
 
-[{if $oView->loadManufacturerTree() && $oView->getManufacturerlist()}]
+[{if $oViewConf->getViewThemeParam('bl_perfLoadManufacturerTree') && $oView->getManufacturerlist()}]
     [{include file="inc/manufacturer_tree.tpl" tree=$oView->getManufacturerlist() class="tree"}]
 [{/if}]
 
-[{if $oView->showLeftBasket()}]
+[{if $oViewConf->getViewThemeParam('bl_perfShowLeftBasket')}]
     [{oxid_include_dynamic file="dyn/mini_basket.tpl" type="basket" testid="LeftBasket"}]
 [{/if}]
 

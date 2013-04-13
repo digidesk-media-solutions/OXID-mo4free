@@ -1,6 +1,6 @@
 [{if $oView->isMdVariantView()}]
   <div style="display: none">
-  [{foreach from=$oView->getVariantList() name=variants item=variant_product}]
+  [{foreach from=$oView->getVariants() name=variants item=variant_product}]
     <div id=mdVariant_[{$variant_product->getId()}]>
       [{include file="inc/product.tpl" product=$variant_product size="thinest" altproduct=$product->getId() class=lastinlist testid="Variant_"|cat:$variant_product->oxarticles__oxid->value}]
     </div>

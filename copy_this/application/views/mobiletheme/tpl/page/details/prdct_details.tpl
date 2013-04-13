@@ -50,10 +50,16 @@
                                                 [{else}]
                                                    <!-- <span class="old">&nbsp;</span>	            	-->
                                                 [{/if}]
-                                                [{if $product->getFPrice() }]
-                                                    <big><span id="product_price">[{ $product->getFPrice() }]</span> [{ $currency->sign}]*</big>
-                                                [{/if}]
-                                                [{assign var="oCont" value=$oView->getContentByIdent("dd_oxdeliveryinfo_iphone") }]
+                                                
+												[{if $product->getFPrice() }]
+													[{if !$product->isParentNotBuyable() }]
+														<big><span id="product_price">[{ $product->getFPrice() }]</span> [{ $currency->sign}]*</big>
+													[{else}]
+														<big><span id="product_price">ab [{ $product->getFVarMinPrice() }]</span> [{ $currency->sign}]*</big>
+														
+													[{/if}]
+												[{/if}]
+												[{assign var="oCont" value=$oView->getContentByIdent("dd_oxdeliveryinfo_iphone") }]
                                                 [{*}]
                                                 <span class="dinfo">[{ oxmultilang ident="DETAILS_PERSPARAM_PLUSSHIPPING" }]<a href="[{ $oCont->getLink() }]" rel="nofollow">[{ oxmultilang ident="DETAILS_PERSPARAM_PLUSSHIPPING2" }]</a></span>
                                                 [{*}]
@@ -104,8 +110,8 @@
                             
                             <div class="variants clearfix"> 
                             
-                                                 [{if $oView->getVariantList() || $oView->drawParentUrl()}]
-                                    [{* <strong id="test_variantHeader" class="boxhead">
+                                                 [{if $product->getVariants() || $oView->drawParentUrl()}]
+                                    [{**}] <strong id="test_variantHeader" class="boxhead">
                                         [{if $oView->drawParentUrl()}]
                                                 <a id="test_backToParent" href="[{$oView->getParentUrl()}]">[{oxmultilang ident="INC_PRODUCT_VARIANTS_BACKTOMAINPRODUCT"|oxmultilangassign|cat:" "|cat:$oView->getParentName() }]</a>
                                         [{else}]
@@ -113,11 +119,11 @@
                                         [{/if}]
                                     </strong>
                                     <div class="variantslist">
-                                        [{ if $oView->drawParentUrl() && count( $oView->getVariantList() ) }]
+                                        [{ if $oView->drawParentUrl() && count( $product->getVariants() ) }]
                                             <b id="test_variantHeader1">[{ oxmultilang ident="INC_PRODUCT_VARIANTS_OTHERVARIANTSOF" }] [{ $oView->getParentName() }]</b>         <br>
                                             <div class="txtseparator inbox"></div>
                                         [{/if}]
-                                    </div>*}]
+                                    </div>[{**}]
                                     <form name="tobasket.current" action="[{ $oViewConf->getSelfActionLink() }]" method="post">
                                         [{if $size=='big'}][{$smarty.capture.product_price}][{/if}]
                                         <div class="variants">
@@ -146,13 +152,16 @@
                                             <input id="test_am_current" type="hidden" name="am" value="1">
                                             [{/if}]
                                             
-                                           [{ if $product->getVariantList() || $product->oxarticles__oxparentid->value }]
+										   [{**}]
+                                           [{ if $product->getVariants() || $product->oxarticles__oxparentid->value }]
+										   
+
                                                   [{ assign var=actproduct value=$product }]
                                                   [{ if $product->oxarticles__oxparentid->value }]
                                                   	[{ assign var=actproduct value=$product->getParentArticle() }]
                                                   [{ /if }]
                                                    <label>[{ $actproduct->oxarticles__oxvarname->value }]:</label> 
-                                                     [{ if $product->getVariantList() || $product->oxarticles__oxparentid->value }]
+                                                     [{ if $product->getVariants() || $product->oxarticles__oxparentid->value }]
                                                         [{ assign var=actproduct value=$product }]
                                                         [{ if $product->oxarticles__oxparentid->value }]
                       	                                    [{ assign var=actproduct value=$product->getParentArticle() }]
@@ -161,7 +170,7 @@
                                                         
 	                                                    [{assign var="currentproduct" value=$oView->getLink()}]
 	                                                    <ul class="variants det-variants" id="mdVariant_current">
-	                                                        [{foreach from=$actproduct->getVariantList() item=variant}]
+	                                                        [{foreach from=$actproduct->getVariants() item=variant}]
 	                                                        <li [{if $product->oxarticles__oxid->value == $variant->oxarticles__oxid->value}]class="current"[{/if}]><a href="[{$variant->getLink()}]" title="[{ $variant->oxarticles__oxvarselect->value }]">[{oxhasrights ident="SHOWARTICLEPRICE"}] [{ $variant->oxarticles__oxvarselect->value }] [{ $variant->getFPrice() }] [{ $currency->sign|strip_tags}]* [{/oxhasrights}]</a></li>
 	                                                        [{/foreach}]
 	                                                    </ul>
@@ -170,8 +179,8 @@
           
 	                                                    
                                                     [{/if}]
-	                                        
                                             [{/if}]
+	                                       [{* *}]
                                                 
                                            
                                         </div>
@@ -182,6 +191,16 @@
                              
                             
                       </div> <!-- prod_breif ends -->
+					  <div id="longdesc_box" class="longdesc_box">
+						  <div class="longdesc">
+							[{$product->oxarticles__oxshortdesc->value}]
+							[{assign var="oLongdesc" value=$product->getLongDescription()}]
+							[{if $oLongdesc->value}]
+								[{oxeval var=$oLongdesc}]
+							[{/if}]
+							[{$product->oxarticles__oxlongdesc->value}]
+						  </div>
+						</div>
       </td>
       </tr>
       
@@ -199,7 +218,7 @@
     <input type="hidden" name="anid" value="[{ $product->oxarticles__oxnid->value }]">
     </div>
 
-    [{*if $oView->getSelectLists() }]
+    [{if $oView->getSelectLists() }]
     [{foreach key=iSel from=$oView->getSelectLists() item=oList}]
      <div class="variants">
       <label>[{ $oList.name }]:</label>
@@ -210,7 +229,7 @@
         </select>
     </div>
     [{/foreach}]
-    [{/if*}]
+    [{/if}]
 
     
 
@@ -261,17 +280,18 @@
 		</div>
 		</td>
       </tr>-->
-	[{oxhasrights ident="SHOWLONGDESCRIPTION"}]
+	[{*[{oxhasrights ident="SHOWLONGDESCRIPTION"}]*}]
       <tr>
 		<td colspan="2" vaign="top">
 		<div id="longdesc_box" class="longdesc_box">
 		  <div class="longdesc">
+		  [{$product->oxarticles__oxshortdesc->value}]
 		  [{$product->oxarticles__oxlongdesc->value}]
 		  </div>
 		</div>
 		
 		</td>
         </tr>
-	[{/oxhasrights}]
+	[{*[{/oxhasrights}]*}]
   </table>
   </div>

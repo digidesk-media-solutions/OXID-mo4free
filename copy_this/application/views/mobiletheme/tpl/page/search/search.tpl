@@ -15,7 +15,7 @@
             <input type="text" name="searchparam" value="[{$oView->getSearchParamForHtml()}]"  id="f.search.param" class="txt">
 
             [{*if $oView->getSearchCatTree() }]
-            <select id="test_searchCategorySelect" class="search_input" name="searchcnid" [{if $oViewConf->isAutoSearchOnCat() }]onchange="oxid.search('f.search','f.search.param');"[{/if}]>
+            <select id="test_searchCategorySelect" class="search_input" name="searchcnid" [{if $oViewConf->getViewThemeParam('blAutoSearchOnCat') }]onchange="oxid.search('f.search','f.search.param');"[{/if}]>
                 <option value=""> [{ oxmultilang ident="INC_SEARCHLEFTITEM_ALLCATEGORIES" }] </option>
                 [{include file="inc/category_options.tpl" tree=$oView->getSearchCatTree() sSpacer=""}]
             </select>

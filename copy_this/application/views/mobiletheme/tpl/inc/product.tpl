@@ -68,10 +68,16 @@
                 <sub class="only">[{ oxmultilang ident="DETAILS_NOWONLY" }]</sub>
             [{/if}]
             [{if $product->getFPrice()}]
-              <big class="price">[{ $product->getFPrice() }] [{ $currency->sign}]</big><sup class="dinfo"><a href="#delivery_link" rel="nofollow">*</a></sup>
+            [{*  <big class="price">[{ $product->getFPrice() }] [{ $currency->sign}]</big><sup class="dinfo"><a href="#delivery_link" rel="nofollow">*</a></sup>*}]
+				[{if !$product->isParentNotBuyable() }]
+					<big class="price">[{ $product->getFPrice() }] [{ $currency->sign}]</big><sup class="dinfo"><a href="#delivery_link" rel="nofollow">*</a></sup>
+				[{else}]
+					<big class="price">ab [{ $product->getFVarMinPrice() }] [{ $currency->sign}]</big><sup class="dinfo"><a href="#delivery_link" rel="nofollow">*</a></sup>
+				[{/if}]
             [{else}]
               <big>&nbsp;</big>
             [{/if}]
+			
 
         </div>
     [{/oxhasrights}]
@@ -108,7 +114,7 @@
     <input id="test_am_[{$testid}]" type="hidden" name="am" value="1">
     [{/if}]
 
-    [{if $product->getVariantList() && ($size!='thinest') }]
+    [{if $product->getVariants() && ($size!='thinest') }]
         <label>[{ $product->oxarticles__oxvarname->value }]:</label>
 
         [{if $product->hasMdVariants() }]
@@ -126,7 +132,7 @@
             [{ if !$product->isParentNotBuyable()}]
                 <option value="[{$product->getId()}]">[{ $product->oxarticles__oxvarselect->value }] [{oxhasrights ident="SHOWARTICLEPRICE"}] [{ $product->getFPrice() }] [{ $currency->sign|strip_tags}]*[{/oxhasrights}]</option>
             [{/if}]
-            [{foreach from=$product->getVariantList() item=variant}]
+            [{foreach from=$product->getVariants() item=variant}]
                 <option value="[{$variant->getId()}]">[{ $variant->oxarticles__oxvarselect->value }] [{oxhasrights ident="SHOWARTICLEPRICE"}] [{ $variant->getFPrice() }] [{ $currency->sign|strip_tags}]* [{/oxhasrights}]</option>
             [{/foreach}]
             </select>

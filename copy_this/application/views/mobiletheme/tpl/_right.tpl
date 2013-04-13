@@ -3,7 +3,7 @@
 [{/if}]
 
 <div class="forms">
-    [{if $oView->showRightBasket()}]
+    [{if $oViewConf->getViewThemeParam('bl_perfShowRightBasket')}]
         [{oxid_include_dynamic file="dyn/mini_basket.tpl" type="basket" extended=true testid="RightBasket"}]
     [{/if}]
 

@@ -9,7 +9,7 @@
 [{include file="_titlesection.tpl" header="PAGE_START_CATEGORIES"|oxmultilangassign needbacklink=$showback}]
 
 [{if $oxcmp_categories }]
-  [{if $oView->showTopCatNavigation()}]
+  [{if $oViewConf->getViewThemeParam('blTopNaviLayout')}]
     [{include file="inc/category_tree.tpl" tree=$oxcmp_categories->getClickRoot() act=$oxcmp_categories->getClickCat() class="category-list" more=$smarty.get.showmore}]
   [{else}]
     [{include file="inc/category_tree.tpl" tree=$oxcmp_categories act=$oxcmp_categories->getClickCat() class="category-list" more=$smarty.get.showmore}]

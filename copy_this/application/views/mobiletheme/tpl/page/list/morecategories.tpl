@@ -6,7 +6,7 @@
 
 <div class="containerfullrow">
   <div class="categorydetailsrow_more">
-  [{if $oView->showTopCatNavigation()}]
+  [{if $oViewConf->getViewThemeParam('blTopNaviLayout')}]
     [{assign var="_navcategorytree" value=$oView->getCategoryTree()}]
     [{ math equation="ceil(x / y)" x=$_navcategorytree->count() y=3 assign="firstcount" }]
     [{ math equation="round(x / y)" x=$_navcategorytree->count() y=3 assign="lastcount" }]

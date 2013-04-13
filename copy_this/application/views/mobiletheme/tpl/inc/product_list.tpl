@@ -24,9 +24,18 @@
 	    	[{if $product->getFTPrice()}] <span class="old">[{ oxmultilang ident="DETAILS_PERSPARAM_REDUCEDFROM" }] <del>[{ $product->getFTPrice()}] [{ $currency->sign}]</del></span>
 	    	<span>[{ oxmultilang ident="DETAILS_PERSPARAM_NOWONLY" }]</span>
 	    	[{/if}]
-	    	[{if $product->getFPrice()}]
-	        	<span class="price">[{ $product->getFPrice() }] [{ $currency->sign}]*</span>
-	        [{/if}]</td>
+			
+			[{if !$product->isParentNotBuyable() }]
+				<span class="price">[{ $product->getFPrice() }] [{ $currency->sign}]*</span>
+            [{else}]
+				
+				<span class="price">ab [{ $product->getFVarMinPrice() }] [{ $currency->sign}]*</span>
+			[{/if}]
+			
+	    	[{*[{if $product->getFPrice()}]
+				<span class="price">[{ $product->getFPrice() }] [{ $currency->sign}]*</span>
+	        [{/if}]*}]
+			</td>
 	  </tr>
 	  <tr>
 		<td width="10">&nbsp;</td>

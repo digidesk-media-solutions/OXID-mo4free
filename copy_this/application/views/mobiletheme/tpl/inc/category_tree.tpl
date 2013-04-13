@@ -7,7 +7,7 @@
     <div class="contMain">
         <ul class="ul-navi">
     [{foreach from=$tree item=ocat key=catkey name=$test_catName}]
-        [{if ( !$ocat->isTopCategory() || !$oView->showTopCatNavigation() ) && $ocat->getContentCats() }]
+        [{if ( !$ocat->isTopCategory() || !$oViewConf->getViewThemeParam('blTopNaviLayout') ) && $ocat->getContentCats() }]
             [{foreach from=$ocat->getContentCats() item=ocont key=contkey name=cont}]
             <li><a id="test_BoxLeft_Cms_[{if $ocat->isTopCategory()}][{$ocat->oxcategories__oxid->value}]_[{$smarty.foreach.cont.iteration}][{else}][{$testSubCat}]_sub[{$smarty.foreach.cont.iteration}][{/if}]" href="[{$ocont->getLink()}]" class="[{if $ocat->isTopCategory()}]root[{/if}][{if $oContentCat && $oContentCat->getId()==$ocont->getId()}] act last[{/if}]">
 				[{$sSpacer}][{$ocat->oxcategories__oxtitle->value}] [{if $ocat->getNrOfArticles() > 0}] ([{$ocat->getNrOfArticles()}])[{/if}]</a></li>

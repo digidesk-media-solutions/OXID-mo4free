@@ -49,7 +49,7 @@
       <div class="footer_basket block clearfix">
                     
 	                    <div class="prev_step_on">
-	                            <a href="[{$newurl}]" class="three-line btn-new">[{ oxmultilang ident="CHECKOUT_USER" }]</a>
+	                            <a href="[{$newurl}]" class="three-line btn-new">[{ oxmultilang ident="ADDRESS" }]</a>
                         </div>
                         <div class="next_step_on">
                              <form action="[{ $oViewConf->getSslSelfLink() }]" name="zsshipping" id="zsshipping" method="post">

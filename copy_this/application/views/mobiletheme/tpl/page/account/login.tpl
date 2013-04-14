@@ -5,6 +5,7 @@
 <div class="contMain">
 [{include file="inc/cmp_login.tpl" }]
 
+[{*
 <div class="bar prevnext">
     <form action="[{ $oViewConf->getSelfActionLink() }]" name="order" method="post">
       <div>
@@ -17,7 +18,7 @@
       </div>
     </form>
 </div>
-
+*}]
 </div>
 </div>
 [{insert name="oxid_tracker" title=$template_title }]

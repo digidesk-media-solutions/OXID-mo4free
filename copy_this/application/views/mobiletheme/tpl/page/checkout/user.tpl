@@ -407,7 +407,7 @@
 
 			    </li>
             </ul>
-
+  [{*if $oxcmp_user*}]
           <div class="dot_sep"></div>
 
 
@@ -423,7 +423,7 @@
           [{else}]
             <span><input type="submit" name="blhideshipaddress" value="[{ oxmultilang ident="USER_DISABLESHIPPINGADDRESS" }]" class="btn-new"></span><br /><br />
           [{/if}]
-
+    [{if $oxcmp_user}]       
            [{assign var="delivadr" value=$oxcmp_user->getSelectedAddress()}]
            <div class="box info">
                 <strong>[{ oxmultilang ident="ACCOUNT_USER_SHIPPINGADDRESSES" }]</strong>
@@ -439,6 +439,9 @@
                 [{/foreach }]
               </select>
             </li>
+            </ul>
+      [{/if}]
+           <ul class="edit rounded userform"> 
              <li class="userli">
                     <div class="user-title"><label>[{ oxmultilang ident="ACCOUNT_USER_TITLE2" }]</label></div>
 			        <div class="user-content">
@@ -530,6 +533,9 @@
 			        <div class="user-content">
                            <input type="text" name="deladr[oxaddress__oxfax]" value="[{if isset( $deladr.oxaddress__oxfax ) }][{ $deladr.oxaddress__oxfax }][{else}][{ $delivadr->oxaddress__oxfax->value }][{/if }]">[{if $oView->isFieldRequired(oxaddress__oxfax) }]<span class="req">*</span>[{/if }]
             </li>
+             </ul>
+      [{*/if*}]         
+             <ul class="edit rounded userform">
              <li class="userli">
                     <div class="user-title"><label></label></div>
 			        <div class="user-content">
@@ -537,7 +543,7 @@
               <input id="test_accUserSaveBottom" type="submit" class="btn-new" name="save" value="[{ oxmultilang ident="ACCOUNT_USER_SAVE2" }]">
             </li>
           </ul>
-
+   
     </form>
 
 

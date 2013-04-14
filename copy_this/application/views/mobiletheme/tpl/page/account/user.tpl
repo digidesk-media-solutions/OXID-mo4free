@@ -68,31 +68,42 @@
 			        <div class="user-content">
                <input type="text" name="invadr[oxuser__oxaddinfo]" value="[{if isset( $invadr.oxuser__oxaddinfo ) }][{ $invadr.oxuser__oxaddinfo }][{else }][{ $oxcmp_user->oxuser__oxaddinfo->value }][{/if }]">[{if $oView->isFieldRequired(oxuser__oxaddinfo) }]<span class="req">*</span>[{/if }]
                  </li>
+                 
+                 
+                 
                  <li class="userli">
                     <div class="user-title"><label>[{ oxmultilang ident="ACCOUNT_USER_COUNTRY" }]</label></div>
 			        <div class="user-content">
-               <select id="invCountrySelect" name="invadr[oxuser__oxcountryid]">
-                <option value="">-</option>
-                [{foreach from=$oViewConf->getCountryList() item=country key=country_id }]
-                  <option value="[{ $country->oxcountry__oxid->value }]"  [{if $oxcmp_user->oxuser__oxcountryid->value == $country->oxcountry__oxid->value }]selected[{/if }]>[{ $country->oxcountry__oxtitle->value }]</option>
-                [{/foreach }]
-              </select>[{if $oView->isFieldRequired(oxuser__oxcountryid) }]<span class="req">*</span>[{/if }]
-                 </li>
-                   
-                 [{if $invadr.oxuser__oxstateid }]
-			     <li class="userli">
-							<div class="user-title"><label></label></div>
-							<div class="user-content">
-							     [{include file="inc/state_selector.snippet.tpl"
-                        countrySelectId="invCountrySelect"
-                        stateSelectName="invadr[oxuser__oxstateid]"
-                        selectedStateIdPrim=$invadr.oxuser__oxstateid
-                        selectedStateId=$oxcmp_user->oxuser__oxstateid
-                     }]
-	                    </div>
+               
+               
+               
+ 
+    <li [{if $aErrors.oxuser__oxcountryid}]class="oxInValid"[{/if}]>
         
-		        </li>
-			    [{/if}]   
+          <select [{if $oView->isFieldRequired(oxuser__oxcountryid) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] id="invCountrySelect" name="invadr[oxuser__oxcountryid]">
+              <option value="">-</option>
+              [{assign var="blCountrySelected" value=false}]
+              [{foreach from=$oViewConf->getCountryList() item=country key=country_id }]
+                  [{assign var="sCountrySelect" value=""}]
+                  [{if !$blCountrySelected}]
+                      [{if (isset($invadr.oxuser__oxcountryid) && $invadr.oxuser__oxcountryid == $country->oxcountry__oxid->value) ||
+                           (!isset($invadr.oxuser__oxcountryid) && $oxcmp_user->oxuser__oxcountryid->value == $country->oxcountry__oxid->value) }]
+                          [{assign var="blCountrySelected" value=true}]
+                          [{assign var="sCountrySelect" value="selected"}]
+                      [{/if}]
+                  [{/if}]
+                <option value="[{ $country->oxcountry__oxid->value }]" [{$sCountrySelect}]>[{ $country->oxcountry__oxtitle->value }]</option>
+            [{/foreach }]
+          </select>
+
+    </li>
+
+   
+                
+                
+                
+                
+                   
 			    <li class="userli">
                     <div class="user-title"><label>[{ oxmultilang ident="ACCOUNT_USER_PHONE" }]</label></div>
 			        <div class="user-content">
@@ -211,25 +222,38 @@
             <li class="userli">
                     <div class="user-title"><label>[{ oxmultilang ident="ACCOUNT_USER_COUNTRY2" }]</label></div>
 			        <div class="user-content">
-                          <select id="delCountrySelect" name="deladr[oxaddress__oxcountryid]">
-                <option value="">-</option>
-                [{foreach from=$oViewConf->getCountryList() item=country key=country_id }]
-                  <option value="[{ $country->oxcountry__oxid->value }]" [{if isset( $deladr.oxaddress__oxcountryid ) && $deladr.oxaddress__oxcountryid == $country->oxcountry__oxid->value }]selected[{elseif $delivadr->oxaddress__oxcountry->value == $country->oxcountry__oxtitle->value or $delivadr->oxaddress__oxcountry->value == $country->oxcountry__oxid->value or $delivadr->oxaddress__oxcountryid->value == $country->oxcountry__oxid->value }]selected[{/if }]>[{ $country->oxcountry__oxtitle->value }]</option>
-                [{/foreach }]
-              </select>[{if $oView->isFieldRequired(oxaddress__oxcountryid) }]<span class="req">*</span>[{/if }]
-            </li>
-            [{if $deladr.oxaddress__oxstateid }]
-            <li class="userli">
-                    <div class="user-title"><label></label></div>
-			        <div class="user-content">
-                           [{include file="inc/state_selector.snippet.tpl"
-                        countrySelectId="delCountrySelect"
-                        stateSelectName="deladr[oxaddress__oxstateid]"
-                        selectedStateIdPrim=$deladr.oxaddress__oxstateid
-                        selectedStateId=$delivadr->oxaddress__oxstateid->value
-                     }]
-            </li>
-            [{/if}]
+			        
+			        
+			        
+       
+        <li [{if $aErrors.oxaddress__oxcountryid}]class="oxInValid"[{/if}]>
+            
+              <select [{if $oView->isFieldRequired(oxaddress__oxcountryid) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if }] id="delCountrySelect" name="deladr[oxaddress__oxcountryid]">
+                  <option value="">-</option>
+                  [{assign var="blCountrySelected" value=false}]
+                  [{foreach from=$oViewConf->getCountryList() item=country key=country_id }]
+                      [{assign var="sCountrySelect" value=""}]
+                      [{if !$blCountrySelected}]
+                          [{if (isset($deladr.oxaddress__oxcountryid) && $deladr.oxaddress__oxcountryid == $country->oxcountry__oxid->value) ||
+                               (!isset($deladr.oxaddress__oxcountryid) && ($delivadr->oxaddress__oxcountry->value == $country->oxcountry__oxtitle->value or
+                                $delivadr->oxaddress__oxcountry->value == $country->oxcountry__oxid->value or
+                                $delivadr->oxaddress__oxcountryid->value == $country->oxcountry__oxid->value)) }]
+                              [{assign var="blCountrySelected" value=true}]
+                              [{assign var="sCountrySelect" value="selected"}]
+                          [{/if}]
+                      [{/if}]
+                      <option value="[{ $country->oxcountry__oxid->value }]" [{$sCountrySelect}]>[{ $country->oxcountry__oxtitle->value }]</option>
+                  [{/foreach }]
+              </select>
+
+        </li>
+
+       
+            
+            
+            
+            
+            
             <li class="userli">
                     <div class="user-title"><label>[{ oxmultilang ident="ACCOUNT_USER_PHONE2" }]</label></div>
 			        <div class="user-content">

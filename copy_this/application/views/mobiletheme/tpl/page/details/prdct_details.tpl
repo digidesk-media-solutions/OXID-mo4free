@@ -1,10 +1,10 @@
-	 <div class="contMain box info"> 
-	 
+	 <div class="contMain box info">
+
 	  <table cellpadding="0" cellspacing="0" width="100%">
 	    <tr class="details-block">
-	        <td width="50%"> <!--image td starts --> 
+	        <td valign="top" width="50%"> <!--image td starts -->
 	              <div class="item_img">
-	              
+
 	                    <div class="img_div">
                           <img src="[{ $oView->getActPicture() }]" id="product_img" class="photo" alt="[{ $product->oxarticles__oxtitle->value|strip_tags }] [{ $product->oxarticles__oxvarselect->value|default:'' }]">
                         </div>
@@ -17,7 +17,7 @@
                         [{/if}]
                     </div>
 	              </td><!--image td ends -->
-	              <td valign="top" width="50%" class="tright"> <!--content td starts --> 
+	              <td valign="top" width="50%" class="tright"> <!--content td starts -->
                         <div class="prod_brief">
                              <div class="art-no clearfix">
                                 <span class="itemno"><b>[{ oxmultilang ident="INC_PRODUCTITEM_ARTNOMBER2" }] </b><span id="artnum">[{ $product->oxarticles__oxartnum->value }]</span></span>
@@ -50,13 +50,13 @@
                                                 [{else}]
                                                    <!-- <span class="old">&nbsp;</span>	            	-->
                                                 [{/if}]
-                                                
+
 												[{if $product->getFPrice() }]
 													[{if !$product->isParentNotBuyable() }]
 														<big><span id="product_price">[{ $product->getFPrice() }]</span> [{ $currency->sign}]*</big>
 													[{else}]
 														<big><span id="product_price">ab [{ $product->getFVarMinPrice() }]</span> [{ $currency->sign}]*</big>
-														
+
 													[{/if}]
 												[{/if}]
 												[{assign var="oCont" value=$oView->getContentByIdent("dd_oxdeliveryinfo_iphone") }]
@@ -65,11 +65,11 @@
                                                 [{*}]
                                             </div>
                                         [{/oxhasrights}]
-                                    [{ /if }] 
+                                    [{ /if }]
                             </div> <!-- price_etc block ends-->
-                            
+
                             [{*
-                            <div class="rating_stars clearfix list-det"> 
+                            <div class="rating_stars clearfix list-det">
                                 [{math equation="x*y" x=20 y=$product->getArticleRatingAverage() assign="currentRate" }]
                                     <form action="[{ $oViewConf->getSelfActionLink() }]" method="post" id="rating">
                                     [{ $oViewConf->getHiddenSid() }]
@@ -86,12 +86,12 @@
 		                                        </ul>
 		                            </form>
                             </div> <!--rating_stars  ends-->
-                            
+
                             *}]
-                            
+
                             <div class="specification clearfix" >
                                 [{ if $oView->getAttributes() }]
-                                    <strong id="test_specsHeader" class="boxhead">[{ oxmultilang ident="DETAILS_SPECIFICATION" }]</strong>                               
+                                    <strong id="test_specsHeader" class="boxhead">[{ oxmultilang ident="DETAILS_SPECIFICATION" }]</strong>
                                     <div class="divspec">
                                          <table width="100%" class="attributes" align="right">
                                           <colgroup><col width="50%" span="2"></colgroup>
@@ -107,9 +107,9 @@
                                 [{/if}]
                             </div><!-- specification block ends -->
                             <br/>
-                            
-                            <div class="variants clearfix"> 
-                            
+
+                            <div class="variants clearfix">
+
                                                  [{if $product->getVariants() || $oView->drawParentUrl()}]
                                     [{**}] <strong id="test_variantHeader" class="boxhead">
                                         [{if $oView->drawParentUrl()}]
@@ -151,59 +151,51 @@
                                             [{if $size!='thin' && $size!='thinest'}]
                                             <input id="test_am_current" type="hidden" name="am" value="1">
                                             [{/if}]
-                                            
+
 										   [{**}]
                                            [{ if $product->getVariants() || $product->oxarticles__oxparentid->value }]
-										   
+
 
                                                   [{ assign var=actproduct value=$product }]
                                                   [{ if $product->oxarticles__oxparentid->value }]
                                                   	[{ assign var=actproduct value=$product->getParentArticle() }]
                                                   [{ /if }]
-                                                   <label>[{ $actproduct->oxarticles__oxvarname->value }]:</label> 
+                                                   <label>[{ $actproduct->oxarticles__oxvarname->value }]:</label>
                                                      [{ if $product->getVariants() || $product->oxarticles__oxparentid->value }]
                                                         [{ assign var=actproduct value=$product }]
                                                         [{ if $product->oxarticles__oxparentid->value }]
                       	                                    [{ assign var=actproduct value=$product->getParentArticle() }]
                       	                                    [{assign var="mainproductlink" value=$actproduct->getLink()}]
                                                         [{ /if }]
-                                                        
+
 	                                                    [{assign var="currentproduct" value=$oView->getLink()}]
 	                                                    <ul class="variants det-variants" id="mdVariant_current">
 	                                                        [{foreach from=$actproduct->getVariants() item=variant}]
 	                                                        <li [{if $product->oxarticles__oxid->value == $variant->oxarticles__oxid->value}]class="current"[{/if}]><a href="[{$variant->getLink()}]" title="[{ $variant->oxarticles__oxvarselect->value }]">[{oxhasrights ident="SHOWARTICLEPRICE"}] [{ $variant->oxarticles__oxvarselect->value }] [{ $variant->getFPrice() }] [{ $currency->sign|strip_tags}]* [{/oxhasrights}]</a></li>
 	                                                        [{/foreach}]
 	                                                    </ul>
-	                                                    
-	
-          
-	                                                    
+
+
+
+
                                                     [{/if}]
                                             [{/if}]
 	                                       [{* *}]
-                                                
-                                           
+
+
                                         </div>
-                                        
+
                                     </form>
-                                [{/if}]   
+                                [{/if}]
                             </div><!-- variants block ends -->
-                             
-                            
+
+
                       </div> <!-- prod_breif ends -->
-					  <div id="longdesc_box" class="longdesc_box">
-						  <div class="longdesc">
-							[{$product->oxarticles__oxshortdesc->value}]
-							[{assign var="oLongdesc" value=$product->getLongDescription()}]
-							[{if $oLongdesc->value}]
-								[{oxeval var=$oLongdesc}]
-							[{/if}]
-							[{$product->oxarticles__oxlongdesc->value}]
-						  </div>
-						</div>
-      </td>
+
+    </td>
+
       </tr>
-      
+
       <tr>
         <td colspan="2">
         <div class="priceblock clearfix">
@@ -231,16 +223,25 @@
     [{/foreach}]
     [{/if}]
 
-    
 
-    
-            
-            
-           
-        
-       
-    
-                            
+
+
+<table width="100%">
+	  <div id="longdesc_box" class="longdesc_box">
+						  <div class="longdesc">
+							[{$product->oxarticles__oxshortdesc->value}]
+							[{assign var="oLongdesc" value=$product->getLongDescription()}]
+							[{if $oLongdesc->value}]
+								[{oxeval var=$oLongdesc}]
+							[{/if}]
+							[{$product->oxarticles__oxlongdesc->value}]
+						  </div>
+						</div>
+ </table>
+
+
+
+
             <table width="100%">
                 [{oxhasrights ident="TOBASKET"}]
                     [{ if $product->isBuyable() }]
@@ -263,14 +264,14 @@
                             </tr>
                     [{/if}]
                 [{/oxhasrights}]
-                
+
             </table>
-           
+
            </form>
             </div><!-- priceblock ends--><br/>
         </td>
       </tr>
-      
+
       <!--<tr>
 		<td colspan="2" vaign="top" class="details-block">
 		<div class="tobasket clearfix">
@@ -280,7 +281,7 @@
 		</div>
 		</td>
       </tr>-->
-	[{*[{oxhasrights ident="SHOWLONGDESCRIPTION"}]*}]
+	[{*[{oxhasrights ident="SHOWLONGDESCRIPTION"}]}]
       <tr>
 		<td colspan="2" vaign="top">
 		<div id="longdesc_box" class="longdesc_box">
@@ -289,9 +290,9 @@
 		  [{$product->oxarticles__oxlongdesc->value}]
 		  </div>
 		</div>
-		
+
 		</td>
         </tr>
-	[{*[{/oxhasrights}]*}]
+	[{[{/oxhasrights}]*}]
   </table>
   </div>

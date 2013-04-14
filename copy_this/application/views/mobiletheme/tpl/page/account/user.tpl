@@ -199,11 +199,7 @@
 			        <div class="user-content">
                            <input type="text" name="deladr[oxaddress__oxstreetnr]" value="[{if isset( $deladr.oxaddress__oxstreetnr ) }][{ $deladr.oxaddress__oxstreetnr }][{else}][{ $delivadr->oxaddress__oxstreetnr->value }][{/if }]">[{if $oView->isFieldRequired(oxaddress__oxstreetnr) }]<span class="req">*</span>[{/if }]
             </li>
-            <li class="userli">
-                    <div class="user-title"><label>[{ oxmultilang ident="USER_STREET_NR" }]</label></div>
-			        <div class="user-content">
-                           <input type="text" name="deladr[oxaddress__oxstreetnr]" value="[{if isset( $deladr.oxaddress__oxstreetnr ) }][{ $deladr.oxaddress__oxstreetnr }][{else}][{ $delivadr->oxaddress__oxstreetnr->value }][{/if }]">[{if $oView->isFieldRequired(oxaddress__oxstreetnr) }]<span class="req">*</span>[{/if }]
-            </li>
+
             <li class="userli">
                     <div class="user-title"><label>[{ oxmultilang ident="USER_PLZ" }]</label></div>
 			        <div class="user-content">

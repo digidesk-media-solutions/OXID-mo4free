@@ -370,13 +370,13 @@
 	                 <input type="text"  name="invadr[oxuser__oxmobfon]" value="[{if isset( $invadr.oxuser__oxmobfon ) }][{$invadr.oxuser__oxmobfon }][{else}][{$oxcmp_user->oxuser__oxmobfon->value }][{/if}]">[{if $oView->isFieldRequired(oxuser__oxmobfon) }]<span class="req">*</span>[{/if}]</div>
 
 			    </li> 
-			    [{*
+			    
 			    <li class="userli">
 							<div class="user-title"><label>[{ oxmultilang ident="USER_PRIVATPHONE" }]</label></div>
 							<div class="user-content">
 	                 <input type="text" name="invadr[oxuser__oxprivfon]" value="[{if isset( $invadr.oxuser__oxprivfon ) }][{$invadr.oxuser__oxprivfon }][{else}][{$oxcmp_user->oxuser__oxprivfon->value }][{/if}]">[{if $oView->isFieldRequired(oxuser__oxprivfon) }]<span class="req">*</span>[{/if}]</div>
 
-			    </li> *}]
+			    </li> 
 			     [{if $oViewConf->showBirthdayFields() }]
 			    <li class="userli">
 							<div class="user-title"><label>[{ oxmultilang ident="USER_BIRTHDATE" }]</label></div>
@@ -419,7 +419,6 @@
           <div class="dot_sep"></div>
 
           [{if !$oView->showShipAddress()}]
-            [{*<span><input type="submit" name="blshowshipaddress" value="[{ oxmultilang ident="USER_DIFFERENTSHIPPINGADDRESS" }]" class="btn-new"></span><br /><br />*}]
             <span><input type="submit" name="blshowshipaddress" value="[{ oxmultilang ident="USER_SHIPPINGADDRESS" }]" class="btn-new"></span><br /><br />
           [{else}]
             <span><input type="submit" name="blhideshipaddress" value="[{ oxmultilang ident="USER_DISABLESHIPPINGADDRESS" }]" class="btn-new"></span><br /><br />
@@ -449,14 +448,16 @@
                   [{if $oView->isFieldRequired(oxaddress__oxsal) }]<span class="req">*</span>[{/if}]</div>
 
 			    </li>
-			    <li class="userli">
-							<div class="user-title"><label>[{ oxmultilang ident="USER_NAME" }]</label></div>
-							<div class="user-content">
-	                 <input type="text" name="deladr[oxaddress__oxfname]" value="[{if isset( $deladr.oxaddress__oxfname ) }][{$deladr.oxaddress__oxfname}][{else}][{$delivadr->oxaddress__oxfname->value }][{/if}]">
-                  <input type="text" name="deladr[oxaddress__oxlname]" value="[{if isset( $deladr.oxaddress__oxlname ) }][{$deladr.oxaddress__oxlname}][{else}][{$delivadr->oxaddress__oxlname->value }][{/if}]">
-                  [{if $oView->isFieldRequired(oxaddress__oxfname) || $oView->isFieldRequired(oxaddress__oxlname) }]<span class="req">*</span>[{/if}]</div>
-
-			    </li>
+             <li class="userli">
+                    <div class="user-title"><label>[{ oxmultilang ident="ACCOUNT_USER_FIRSTNAME" }]</label></div>
+			        <div class="user-content">
+                           <input type="text" name="deladr[oxaddress__oxfname]" value="[{if isset( $deladr.oxaddress__oxfname ) }][{ $deladr.oxaddress__oxfname }][{else}][{ $delivadr->oxaddress__oxfname->value }][{/if }]">[{if $oView->isFieldRequired(oxaddress__oxfname) }]<span class="req">*</span>[{/if }]
+            </li>
+            <li class="userli">
+                    <div class="user-title"><label>[{ oxmultilang ident="ACCOUNT_USER_LASTNAME" }]</label></div>
+			        <div class="user-content">
+                           <input type="text" name="deladr[oxaddress__oxlname]" value="[{if isset( $deladr.oxaddress__oxlname ) }][{ $deladr.oxaddress__oxlname }][{else}][{ $delivadr->oxaddress__oxlname->value }][{/if }]">[{if $oView->isFieldRequired(oxaddress__oxlname) }]<span class="req">*</span>[{/if }]
+            </li>
 			    <li class="userli">
 							<div class="user-title"><label>[{ oxmultilang ident="USER_COMPANY2" }]</label></div>
 							<div class="user-content">
@@ -464,29 +465,28 @@
                   [{if $oView->isFieldRequired(oxaddress__oxcompany) }]<span class="req">*</span>[{/if}]</div>
 
 			    </li>
-			    <li class="userli">
-							<div class="user-title"><label>[{ oxmultilang ident="USER_STREET2" }]</label></div>
-							<div class="user-content">
-	                  <input type="text" name="deladr[oxaddress__oxstreet]" value="[{if isset( $deladr.oxaddress__oxstreet ) }][{$deladr.oxaddress__oxstreet}][{else}][{$delivadr->oxaddress__oxstreet->value}][{/if}]">
-                  <input type="text" name="deladr[oxaddress__oxstreetnr]" value="[{if isset( $deladr.oxaddress__oxstreetnr ) }][{$deladr.oxaddress__oxstreetnr}][{else}][{$delivadr->oxaddress__oxstreetnr->value }][{/if}]">
-                  [{if $oView->isFieldRequired(oxaddress__oxstreet) || $oView->isFieldRequired(oxaddress__oxstreetnr) }]<span class="req">*</span>[{/if}]</div>
+            <li class="userli">
+                    <div class="user-title"><label>[{ oxmultilang ident="USER_STREET" }]</label></div>
+			        <div class="user-content">
+                           <input type="text" name="deladr[oxaddress__oxstreet]" value="[{if isset( $deladr.oxaddress__oxstreet ) }][{ $deladr.oxaddress__oxstreet }][{else}][{ $delivadr->oxaddress__oxstreet->value }][{/if }]">[{if $oView->isFieldRequired(oxaddress__oxstreet)}]<span class="req">*</span>[{/if }]
+            </li>
+            <li class="userli">
+                    <div class="user-title"><label>[{ oxmultilang ident="USER_STREET_NR" }]</label></div>
+			        <div class="user-content">
+                           <input type="text" name="deladr[oxaddress__oxstreetnr]" value="[{if isset( $deladr.oxaddress__oxstreetnr ) }][{ $deladr.oxaddress__oxstreetnr }][{else}][{ $delivadr->oxaddress__oxstreetnr->value }][{/if }]">[{if $oView->isFieldRequired(oxaddress__oxstreetnr) }]<span class="req">*</span>[{/if }]
+            </li>
 
-			    </li>
-			     <li class="userli">
-							<div class="user-title"><label>[{ oxmultilang ident="USER_PLZANDCITY2" }]</label></div>
-							<div class="user-content">
-	                 <input type="text" name="deladr[oxaddress__oxzip]" value="[{if isset( $deladr.oxaddress__oxzip ) }][{$deladr.oxaddress__oxzip}][{else}][{$delivadr->oxaddress__oxzip->value }][{/if}]">
-                  <input type="text" name="deladr[oxaddress__oxcity]" value="[{if isset( $deladr.oxaddress__oxcity ) }][{$deladr.oxaddress__oxcity}][{else}][{$delivadr->oxaddress__oxcity->value }][{/if}]">
-                  [{if $oView->isFieldRequired(oxaddress__oxzip) || $oView->isFieldRequired(oxaddress__oxcity) }]<span class="req">*</span>[{/if}]</div>
+            <li class="userli">
+                    <div class="user-title"><label>[{ oxmultilang ident="USER_PLZ" }]</label></div>
+			        <div class="user-content">
+                           <input type="text" name="deladr[oxaddress__oxzip]" value="[{if isset( $deladr.oxaddress__oxzip ) }][{ $deladr.oxaddress__oxzip }][{else}][{ $delivadr->oxaddress__oxzip->value }][{/if }]">[{if $oView->isFieldRequired(oxaddress__oxzip)}]<span class="req">*</span>[{/if }]
+            </li>
+            <li class="userli">
+                    <div class="user-title"><label>[{ oxmultilang ident="USER_CITY" }]</label></div>
+			        <div class="user-content">
+                           <input type="text" name="deladr[oxaddress__oxcity]" value="[{if isset( $deladr.oxaddress__oxcity ) }][{ $deladr.oxaddress__oxcity }][{else}][{ $delivadr->oxaddress__oxcity->value }][{/if }]">[{if $oView->isFieldRequired(oxaddress__oxcity) }]<span class="req">*</span>[{/if }]
+            </li>
 
-			    </li>
-			    <li class="userli">
-							<div class="user-title"><label>[{ oxmultilang ident="USER_STREET2" }]</label></div>
-							<div class="user-content">
-	                  <input type="text" name="deladr[oxaddress__oxaddinfo]" value="[{if isset( $deladr.oxaddress__oxaddinfo ) }][{$deladr.oxaddress__oxaddinfo}][{else}][{$delivadr->oxaddress__oxaddinfo->value }][{/if}]">
-                  [{if $oView->isFieldRequired(oxaddress__oxaddinfo) }]<span class="req">*</span>[{/if}]</div>
-
-			    </li>
 			    <li class="userli">
 							<div class="user-title"><label>[{ oxmultilang ident="USER_COUNTRY2" }]</label></div>
 							<div class="user-content">
@@ -515,7 +515,7 @@
 
        
 			    <li class="userli">
-							<div class="user-title"><label></label></div>
+							<div class="user-title"><label>[{ oxmultilang ident="USER_ADDITIONALINFO" }]</label></div>
 							<div class="user-content">
 	                  <input type="text" name="deladr[oxaddress__oxaddinfo]" value="[{if isset( $deladr.oxaddress__oxaddinfo ) }][{$deladr.oxaddress__oxaddinfo}][{else}][{$delivadr->oxaddress__oxaddinfo->value }][{/if}]">
                   [{if $oView->isFieldRequired(oxaddress__oxaddinfo) }]<span class="req">*</span>[{/if}]</div>

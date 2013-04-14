@@ -45,7 +45,7 @@ $aLang = array(
 'CONTINUE' => 'Weiter',
 'CHECKOUT_USER' => 'User bearbeiten',
 'USER_NAME' => 'Namen:',
-'FOOTER_INCLTAXANDPLUSSHIPPING' => '* Alle Preise inkl. MwSt., inkl. Versandkosten.',
+'FOOTER_INCLTAXANDPLUSSHIPPING' => '* Alle Preise inkl. MwSt., zzgl. Versandkosten.',
 'DD_ASK_FOR_MOBILE' => 'Möchten Sie die mobile Version benutzen?',
 'DD_FOOTER_SWITCH_2_STD' => 'Desktop-Version aufrufen',
 );

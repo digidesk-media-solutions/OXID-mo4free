@@ -8,13 +8,13 @@
 	                    <div class="img_div">
                           <img src="[{ $oView->getActPicture() }]" id="product_img" class="photo" alt="[{ $product->oxarticles__oxtitle->value|strip_tags }] [{ $product->oxarticles__oxvarselect->value|default:'' }]">
                         </div>
-                        [{if $oView->morePics() }]<br>
+                        [{*if $oView->morePics() }]<br>
                             <div class="morepics">
                             [{foreach from=$oView->getIcons() key=picnr item=ArtIcon name=MorePics}]
                                 <a id="test_MorePics_[{$smarty.foreach.MorePics.iteration}]" rel="nofollow" href="[{ $product->getLink()|oxaddparams:"actpicid=`$picnr`" }]" ><img src="[{$product->getIconUrl($picnr)}]" alt=""></a>
                             [{/foreach}]
                             </div>
-                        [{/if}]
+                        [{/if*}]
                     </div>
 	              </td><!--image td ends -->
 	              <td valign="top" width="50%" class="tright"> <!--content td starts -->

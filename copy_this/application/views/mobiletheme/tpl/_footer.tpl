@@ -22,7 +22,7 @@
                 <li><a href="[{ $_cont->getLink() }]">[{ oxmultilang ident="AGB" }]</a></li>
             [{/oxifcontent}]
             [{oxifcontent ident="oximpressum" object="_cont"}]
-                <li><a href="[{ $_cont->getLink() }]">[{ oxmultilang ident="IMPRESUSUM" }]</a></li>
+                <li><a href="[{ $_cont->getLink() }]">[{ oxmultilang ident="IMPRESSUM" }]</a></li>
             [{/oxifcontent}]
             <li><a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=content" }]">[{ oxmultilang ident="INC_FOOTER_MORE" }]</a></li>
             

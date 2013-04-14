@@ -24,6 +24,9 @@
             [{oxifcontent ident="oximpressum" object="_cont"}]
                 <li><a href="[{ $_cont->getLink() }]">[{ oxmultilang ident="IMPRESSUM" }]</a></li>
             [{/oxifcontent}]
+              [{if $oView->isEnabledDownloadableFiles()}]
+              <li><a id="test_link_footer_downloads" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_downloads" }]" rel="nofollow">[{ oxmultilang ident="Downloads" }]</a></li>
+            [{/if}]
             <li><a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=content" }]">[{ oxmultilang ident="INC_FOOTER_MORE" }]</a></li>
             
         </ul>

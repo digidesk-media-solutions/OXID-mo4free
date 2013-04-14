@@ -380,7 +380,7 @@
           </tr>
         [{/foreach }]
       [{/if}]
-
+      [{if $oxcmp_basket->getDeliveryCosts() }]
       <tr class="bsk_sep"><td class="brd"></td><td colspan="7" class="line"></td><td></td></tr>
       <tr class="sumrow">
         <td class="brd"></td>
@@ -388,7 +388,7 @@
         <td id="test_orderShippingNet" align="right">[{ $oxcmp_basket->getDelCostNet() }]&nbsp;[{ $currency->sign}]</td>
         <td></td>
       </tr>
-
+      [{/if}]
       [{if $oxcmp_basket->getDelCostVat()}]
         <tr class="sumrow">
           <td class="brd"></td>

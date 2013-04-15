@@ -6,7 +6,8 @@ class dd_oxidmobile_oxcmp_user extends dd_oxidmobile_oxcmp_user_parent
 		$myConfig = $this->getConfig();
 		if ( function_exists( 'ddIsMobileWished' ) && ddIsMobileWished())
 		{
-			$myConfig->setConfigParam( 'sTheme', 'mobiletheme' );
+			//$myConfig->setConfigParam( 'sTheme', 'mobiletheme' );
+			$myConfig->setConfigParam( 'sCustomTheme', 'mobiletheme' );
             $sCompileDir = $myConfig->getConfigParam( 'sCompileDir' );
             $sCompileDir = str_replace( '/tmp', '/mobile_tmp', $sCompileDir);
             $myConfig->setConfigParam( 'sCompileDir', $sCompileDir );

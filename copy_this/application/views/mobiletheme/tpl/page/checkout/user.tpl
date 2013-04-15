@@ -327,7 +327,7 @@
 							<div class="user-title"><label>[{ oxmultilang ident="USER_COUNTRY" }]</label></div>
 							<div class="user-content">
 	                 <select id="invCountrySelect" name="invadr[oxuser__oxcountryid]">
-                  <option value="">-</option>
+                  [{*<option value="">-</option>*}]
                   [{foreach from=$oViewConf->getCountryList() item=country key=country_id}]
                     <option value="[{$country->oxcountry__oxid->value}]"[{if isset( $invadr.oxuser__oxcountryid ) && $invadr.oxuser__oxcountryid == $country->oxcountry__oxid->value}] selected[{ elseif $oxcmp_user->oxuser__oxcountryid->value == $country->oxcountry__oxid->value }] selected[{/if}]>[{$country->oxcountry__oxtitle->value}]</option>
                   [{/foreach}]
@@ -388,9 +388,19 @@
                 [{/if}]
                 <textarea  name="order_remark">[{$order_remark}]</textarea>
 
-			    </li>
+			    </li> 
+    
             </ul>
+                 <div class="footer_basket block clearfix">
+        <div class="prev_step_on">
+            <a href="[{$oViewConf->getBasketLink()}]" class="one-line btn-new">[{ oxmultilang ident="USER_Cart" }]</a>
 
+        </div>
+        <div class="next_step_on">
+            <input id="test_UserNextStepBottom" name="userform" class="btn-new" type="submit" value="[{ oxmultilang ident="CONTINUE" }]">
+
+        </div>
+       </div>
           <div class="dot_sep"></div>
 
 
@@ -401,16 +411,16 @@
           <div class="box">
           <div class="dot_sep"></div>
 
-          [{if !$oView->showShipAddress()}]
-            [{*<span><input type="submit" name="blshowshipaddress" value="[{ oxmultilang ident="USER_DIFFERENTSHIPPINGADDRESS" }]" class="btn-new"></span><br /><br />*}]
+          [{*if !$oView->showShipAddress()*}]
+            [{*<span><input type="submit" name="blshowshipaddress" value="[{ oxmultilang ident="USER_DIFFERENTSHIPPINGADDRESS" }]" class="btn-new"></span><br /><br />}]
             <span><input type="submit" name="blshowshipaddress" value="[{ oxmultilang ident="USER_SHIPPINGADDRESS" }]" class="btn-new"></span><br /><br />
           [{else}]
             <span><input type="submit" name="blhideshipaddress" value="[{ oxmultilang ident="USER_DISABLESHIPPINGADDRESS" }]" class="btn-new"></span><br /><br />
-          [{/if}]
+          [{/if*}]
 
           <div class="fs10 def_color_1"><span class="req">[{ oxmultilang ident="USER_NOTE" }]</span> [{ oxmultilang ident="USER_DIFFERENTDELIVERYADDRESS" }]</div>
           </div>
-          [{if $oView->showShipAddress()}]
+          [{*if $oView->showShipAddress()*}]
           <ul class="edit rounded userform">
             <li class="userli">
 							<div class="user-title"><label>[{ oxmultilang ident="USER_ADDRESSES" }]</label></div>
@@ -474,7 +484,7 @@
 							<div class="user-title"><label>[{ oxmultilang ident="USER_COUNTRY2" }]</label></div>
 							<div class="user-content">
 	                  <select id="delCountrySelect" name="deladr[oxaddress__oxcountryid]">
-                    <option value="">-</option>
+                    [{*<option value="">-</option>*}]
                     [{foreach from=$oViewConf->getCountryList() item=country key=country_id}]
                       <option value="[{$country->oxcountry__oxid->value}]" [{if isset( $deladr.oxaddress__oxcountryid ) && $deladr.oxaddress__oxcountryid == $country->oxcountry__oxid->value}]selected[{elseif $delivadr->oxaddress__oxcountryid->value == $country->oxcountry__oxid->value}]selected[{/if}]>[{$country->oxcountry__oxtitle->value}]</option>
                     [{/foreach}]
@@ -527,7 +537,7 @@
     </form>
     &nbsp;
 
-  [{/if}]
+  [{*/if*}]
       </div>
 
     [{/if}]

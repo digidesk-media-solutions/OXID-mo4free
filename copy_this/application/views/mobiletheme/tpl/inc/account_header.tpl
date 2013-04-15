@@ -19,10 +19,11 @@
         </li>
             [{if $oView->isEnabledDownloadableFiles()}]
             <li>
-                <a id="test_link_account_downloads" class="[{if $active_link == 10}]active[{/if}]" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_downloads" }]" rel="nofollow">[{ oxmultilang ident="MY_DOWNLOADS" }]</a>
+                <a id="test_link_account_downloads" class="[{if $active_link == 5}]active[{/if}]" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_downloads" }]" rel="nofollow">[{ oxmultilang ident="MY_DOWNLOADS" }]</a>
                 
             </li>
-            [{/if}]        
+            [{/if}]  
+        [{*    
         <li>
         <a id="test_link_account_noticelist" class="[{if $active_link == 5}]active[{/if}]" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_noticelist" }]" rel="nofollow">[{ oxmultilang ident="INC_ACCOUNT_HEADER_MYNOTICELIST" }]
         <span class="pop">[{ if $oxcmp_user }][{ $oxcmp_user->getNoticeListArtCnt() }][{else}]0[{/if}]</span></a>
@@ -46,6 +47,7 @@
             <span class="pop">[{ if $oxcmp_user->getRecommListsCount() }][{ $oxcmp_user->getRecommListsCount() }][{else}]0[{/if}]</span></a>
             </li>
         [{/if}]
+       *}] 
         <li>
            <a id="test_link_account_logout" href="[{ $oViewConf->getLogoutLink() }]" class="[{if $active_link == 9}]active[{/if}]">[{ oxmultilang ident="INC_ACCOUNT_HEADER_LOGOUT" }]</a>
         </li>

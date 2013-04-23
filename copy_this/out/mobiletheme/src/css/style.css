@@ -109,9 +109,11 @@ input#searchParam {
 	padding: 2px;
 	width: 60px;
 	-webkit-appearance: none;
-	border-radius: 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
+	border-radius: 3px;
+    
+	-moz-border-radius: 3px;
+    
+	-webkit-border-radius: 3px;
 }
 .contMain ul li a {
 	height: 25px
@@ -133,6 +135,8 @@ input#searchParam {
 	font-size: 14px;
 	background: #3c4e55;
 	width: 50%
+;
+	border-radius: 5px;
 }
 #footer .signSec a:hover{background:#3C4E55}
 #footer .footernav {
@@ -148,8 +152,7 @@ input#searchParam {
 	list-style: none;
 	float: left;
 	border-right: 1px solid #6f7070;
-	padding: 0 5px
-}
+	padding: 0 4px;}
 #footer .footernav ul li:last-child {
 	border: none
 }
@@ -186,12 +189,13 @@ input.btn-new, a.btn-new {
 	font-weight: bold;
 	display: inline-block;
 	-webkit-appearance: none;
-	border-radius: 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
+	border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }
 input.btn-new:hover, a.btn-new:hover {
 	background: #3C4E55
+;
 }
 ul.userform {
 	margin: 0;
@@ -235,17 +239,18 @@ span.green, span.orange, span.red {
 	width: 12px;
 	height: 12px;
 	vertical-align: middle;
-	margin-right: 5px
+	margin-right: 5px;
+	border-radius: 6px;
 }
 span.green {
-	background: #33cc00
+	background: #33cc00;
 }
 span.orange {
-	background: #ff6600
-}
+	background: #ff6600;
+	}
 span.red {
-	background: #ff0000
-}
+	background: #ff0000;
+	}
 span.price {
 	font-size: 14px;
 	font-weight: bold
@@ -283,7 +288,8 @@ span.pop {
 	background: none repeat scroll 0 0 #FF0000;
 	color: #FFFFFF;
 	left: 2px;
-	padding: 0 5px 0 3px;
+	padding: 1px 1px;
+	border-radius: 8px;
 	position: relative;
 	text-align: center;
 	top: -5px;
@@ -298,12 +304,14 @@ input.removeBtn {
 	cursor: pointer;
 	text-indent: -1000px;
 	margin-top: 10px;
+	margin-left: 20px;
 	overflow:hidden;
 	-webkit-appearance: none;
 	border-radius: 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
-    padding: 0;
+
+	padding: 0;
 
 }
 input.refresh {
@@ -328,9 +336,11 @@ input.refresh {
 	padding: 2px;
 	cursor:pointer;
 	-webkit-appearance: none;
-	border-radius: 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;	
+	border-radius: 3px;
+    
+	-moz-border-radius: 3px;
+    
+	-webkit-border-radius: 3px;
 }
 .searchsec {
 	float: right;
@@ -423,7 +433,7 @@ tr.basket_item.bask-last td,tr.basket_item td td{border:none}
 .det-variants li a{background: url(../images/gy-arw.png) no-repeat right;}
 
 .divspec {padding-top:5px}
-.locbody .left a.textblock,.sort_row a.textblock{display:inline-block;background:#3C4E55;color:#fff;padding:0 2px;} 
+.locbody .left a.textblock,.sort_row a.textblock{display:inline-block;background:#3C4E55;color:#fff;padding:0 2px;}
 .locbody .left a.textblock.active,.sort_row a.textblock.active{background:#333}
 .locbody .left span{float:left}
 input.chbox,input[type="checkbox"],input.btn-new{width:auto !important}

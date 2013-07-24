@@ -33,7 +33,7 @@
 						                            <span id="product_price">[{ $product->getFPrice() }]</span> [{ $currency->sign}]*
 						                            [{if $product->getPricePerUnit()}]
 							                            <span class="pperunit">
-								                            ([{$product->getPricePerUnit()}] [{ $currency->sign}]/[{$product->oxarticles__oxunitname->value}])
+								                            ([{$product->getPricePerUnit()}] [{ $currency->sign}]/[{$product->getUnitName()}])
 							                            </span>
 						                            [{/if}]
 					                            </div>

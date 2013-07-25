@@ -100,9 +100,9 @@
                 <div class="price">
                     <span id="product_price">[{ $product->getFPrice() }]</span> [{ $currency->sign}]*
                     [{if $product->getPricePerUnit()}]
-                                                            <span class="pperunit">
-                                                                ([{$product->getPricePerUnit()}] [{ $currency->sign}]/[{$product->oxarticles__oxunitname->value}])
-                                                            </span>
+                        <span class="pperunit">
+                            ([{$product->getPricePerUnit()}] [{ $currency->sign}]/[{$product->getUnitName()}])
+                        </span>
                     [{/if}]
                 </div>
                 [{/if}]

@@ -1,5 +1,8 @@
 version 1.0.4
 - change for oxid 4.7.x, also fix the cookie bug and add (almost) every mobile devices
+- it is not more necessary to login as an administrator to call dd_oxidmobile_install.php, the file will be removed after installation
+- fixed a bug at choice of delivery address
+- minor bugfixes
 
 version 1.0.3
 - changed mobile check

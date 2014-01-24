@@ -13,8 +13,8 @@ Mobile theme by digidesk - media solutions
 4)  Insert the following lines into your shop's config.inc.php
 
 		// == OXID mo4free ==
-		// Bitte tragen Sie hier Ihren Domain-Namen ohne Subdomain mit einem anfï¿½hrenden "." an.
-		// Dies wird benï¿½tigt um Subdomain-ï¿½bergreifende Cookies zu setzten.
+		// Bitte tragen Sie hier Ihren Domain-Namen ohne Subdomain mit einem anführenden "." an.
+		// Dies wird benötigt um Subdomain-übergreifende Cookies zu setzten.
 		// Beispiel: www.ihreshopurl.com
 		// Wert: .ihreshopurl.com
 
@@ -35,4 +35,4 @@ Mobile theme by digidesk - media solutions
 	
 6)  clear the tmp-directory
 
-7)  set read and write permissions for the directory "tmp/mobile" (minimum CHMOD: 555, common CHMOD: 755)
+7)  set read and write permissions for the directory "mobile_tmp" (minimum CHMOD: 555, common CHMOD: 755)

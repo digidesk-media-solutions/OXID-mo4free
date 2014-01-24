@@ -478,8 +478,9 @@ $aMap = array(
 'GUESTBOOK_YOUHAVETOBELOGGED'                                 => 'MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK',
 'HELP_HELP'                                                   => 'HELP',
 'HELP_TITLE'                                                  => 'HELP',
-'IMPRESUSUM_IMPRESUSUM'                                       => 'IMPRESUSUM',
-'IMPRESUSUM_TITLE'                                            => 'IMPRESUSUM',
+'IMPRESUSUM_IMPRESUSUM'                                       => 'IMPRESSUM', // T-VAM9OZ0EI9-72: Schreibfehler korrigiert
+'IMPRESUSUM_TITLE'                                            => 'IMPRESSUM', // T-VAM9OZ0EI9-72: Schreibfehler korrigiert
+'IMPRESUSUM'						      => 'IMPRESSUM', // T-VAM9OZ0EI9-72: Umleitung auf korrekte Schreibweise, falls es so verwendet wird'INC_ACCOUNT_HEADER_BILLINGSHIPPINGSET'                       => 'BILLING_SHIPPING_SETTINGS',
 'INC_ACCOUNT_HEADER_BILLINGSHIPPINGSET'                       => 'BILLING_SHIPPING_SETTINGS',
 'INC_ACCOUNT_HEADER_CHANGEPWD'                                => 'CHANGE_ACCOUNT_PASSWORD',
 'INC_ACCOUNT_HEADER_LISTS'                                    => 'LISTS',

@@ -207,8 +207,9 @@ function ddIsMobileDevice()
 }
 function ddIsMozillaDevice()
 {
+    /* T-G5DJ7UF6KI-49: Mobile eingefügt, damit Desktop-Browser nicht akzeptiert werden */
     $aMobileDevices = array (
-        "Mozilla."
+        "Mozilla.*Mobile"
     );
 
     $useragent = $_SERVER[ 'HTTP_USER_AGENT' ];

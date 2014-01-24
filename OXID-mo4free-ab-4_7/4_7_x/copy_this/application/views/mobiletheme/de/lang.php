@@ -355,5 +355,5 @@ $aLang = array(
     'searchResult'                                 => 'Suchergebnis f&uuml;r "%s"',
     'simpleDateFormat'                             => "d.m.Y",
     'usrRegistered'                                => "Der Benutzer wird nach der Eingabe seines Passwortes registriert",
-
+    'IMPRESSUM'                                    => "Impressum",  // T-VAM9OZ0EI9-72: Richtige Schreibweise eingefügt
 );

@@ -386,7 +386,7 @@
       <tr class="sumrow">
         <td class="brd"></td>
         <td colspan="6" class="sumdesc">[{if $oxcmp_basket->getDelCostVat() }][{ oxmultilang ident="ORDER_SHIPPINGNET" }][{else}][{ oxmultilang ident="ORDER_SHIPPINGGROSS1" }][{/if}]</td>
-        <td id="test_orderShippingNet" align="right">[{if $oxcmp_basket->getDelCostVat() }][{ $oxcmp_basket->getDelCostNet() }][{else}][{ $oxcmp_basket->getFDeliveryCosts() }][{/if}]&nbsp;[{ $currency->sign}]</td>
+        <td id="test_orderShippingNet" align="right">[{ $oxcmp_basket->getDelCostNet() }]&nbsp;[{ $currency->sign}]</td>
         <td></td>
       </tr>
       [{/if}]

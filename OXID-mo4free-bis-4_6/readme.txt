@@ -8,7 +8,7 @@ digidesk
 dd_oxidmobile
 
 ==Version==
-1.0.0
+1.0.5
 
 ==Link==
 http://www.digidesk.de
